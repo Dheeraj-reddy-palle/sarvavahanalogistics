@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/styles.css?v=16">
+    <link rel="stylesheet" href="css/styles.css?v=17">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='18' width='100' height='100' fill='%230A0F1A'/>%3Ctext x='50' y='65' font-size='42' fill='%23C9982E' text-anchor='middle' font-family='sans-serif' font-weight='bold'%3ESV%3C/text%3E</svg>">
@@ -266,50 +266,93 @@
                 <h2>Premium, Well-Maintained <span class="highlight">Vehicles</span></h2>
                 <p>Every vehicle is company-owned, GPS-equipped, regularly serviced, and sanitized for your comfort.</p>
             </div>
-            <div class="fleet-grid">
-                <div class="fleet-card">
-                    <div class="fleet-image">
-                        <img src="https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Executive Sedan">
-                        <div class="fleet-tag">Sedan</div>
-                    </div>
-                    <div class="fleet-info">
-                        <h3>Executive Sedan</h3>
-                        <div class="fleet-specs">
-                            <span><i class="fas fa-user-friends"></i> 4 Passengers</span>
-                            <span><i class="fas fa-suitcase-rolling"></i> 2 Bags</span>
-                            <span><i class="fas fa-snowflake"></i> AC</span>
+            <div class="fleet-carousel">
+                <div class="fleet-track">
+                    <!-- Original set -->
+                    <div class="fleet-slide">
+                        <div class="fleet-slide-img">
+                            <img src="cars/swift desire.webp" alt="Swift Dzire">
                         </div>
-                        <p>Swift Dzire, Toyota Etios, Hyundai Xcent — ideal for airport transfers and daily crew commute.</p>
+                        <h3>Swift Dzire</h3>
+                        <span class="fleet-slide-tag">Sedan · 4 Seater</span>
                     </div>
-                </div>
-                <div class="fleet-card">
-                    <div class="fleet-image">
-                        <img src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Premium Sedan">
-                        <div class="fleet-tag">Premium</div>
-                    </div>
-                    <div class="fleet-info">
-                        <h3>Premium Sedan</h3>
-                        <div class="fleet-specs">
-                            <span><i class="fas fa-user-friends"></i> 4 Passengers</span>
-                            <span><i class="fas fa-suitcase-rolling"></i> 3 Bags</span>
-                            <span><i class="fas fa-snowflake"></i> AC</span>
+                    <div class="fleet-slide">
+                        <div class="fleet-slide-img">
+                            <img src="cars/Toyota etios.webp" alt="Toyota Etios">
                         </div>
-                        <p>Honda City, Hyundai Verna, Maruti Aura — for executives and VIP travel requirements.</p>
+                        <h3>Toyota Etios</h3>
+                        <span class="fleet-slide-tag">Sedan · 4 Seater</span>
                     </div>
-                </div>
-                <div class="fleet-card">
-                    <div class="fleet-image">
-                        <img src="https://images.pexels.com/photos/1638459/pexels-photo-1638459.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="SUV / MUV">
-                        <div class="fleet-tag">SUV / MUV</div>
-                    </div>
-                    <div class="fleet-info">
-                        <h3>SUV / MUV</h3>
-                        <div class="fleet-specs">
-                            <span><i class="fas fa-user-friends"></i> 6-7 Passengers</span>
-                            <span><i class="fas fa-suitcase-rolling"></i> 5 Bags</span>
-                            <span><i class="fas fa-snowflake"></i> AC</span>
+                    <div class="fleet-slide">
+                        <div class="fleet-slide-img">
+                            <img src="cars/hyundai xcent.webp" alt="Hyundai Xcent">
                         </div>
-                        <p>Toyota Innova, Maruti Ertiga — perfect for crew transport and group transfers.</p>
+                        <h3>Hyundai Xcent</h3>
+                        <span class="fleet-slide-tag">Sedan · 4 Seater</span>
+                    </div>
+                    <div class="fleet-slide">
+                        <div class="fleet-slide-img">
+                            <img src="cars/aura.webp" alt="Maruti Aura">
+                        </div>
+                        <h3>Maruti Aura</h3>
+                        <span class="fleet-slide-tag">Premium · 4 Seater</span>
+                    </div>
+                    <div class="fleet-slide">
+                        <div class="fleet-slide-img">
+                            <img src="cars/innova.webp" alt="Toyota Innova">
+                        </div>
+                        <h3>Toyota Innova</h3>
+                        <span class="fleet-slide-tag">MUV · 7 Seater</span>
+                    </div>
+                    <div class="fleet-slide">
+                        <div class="fleet-slide-img">
+                            <img src="cars/ertiga.webp" alt="Maruti Ertiga">
+                        </div>
+                        <h3>Maruti Ertiga</h3>
+                        <span class="fleet-slide-tag">MUV · 7 Seater</span>
+                    </div>
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="fleet-slide">
+                        <div class="fleet-slide-img">
+                            <img src="cars/swift desire.webp" alt="Swift Dzire">
+                        </div>
+                        <h3>Swift Dzire</h3>
+                        <span class="fleet-slide-tag">Sedan · 4 Seater</span>
+                    </div>
+                    <div class="fleet-slide">
+                        <div class="fleet-slide-img">
+                            <img src="cars/Toyota etios.webp" alt="Toyota Etios">
+                        </div>
+                        <h3>Toyota Etios</h3>
+                        <span class="fleet-slide-tag">Sedan · 4 Seater</span>
+                    </div>
+                    <div class="fleet-slide">
+                        <div class="fleet-slide-img">
+                            <img src="cars/hyundai xcent.webp" alt="Hyundai Xcent">
+                        </div>
+                        <h3>Hyundai Xcent</h3>
+                        <span class="fleet-slide-tag">Sedan · 4 Seater</span>
+                    </div>
+                    <div class="fleet-slide">
+                        <div class="fleet-slide-img">
+                            <img src="cars/aura.webp" alt="Maruti Aura">
+                        </div>
+                        <h3>Maruti Aura</h3>
+                        <span class="fleet-slide-tag">Premium · 4 Seater</span>
+                    </div>
+                    <div class="fleet-slide">
+                        <div class="fleet-slide-img">
+                            <img src="cars/innova.webp" alt="Toyota Innova">
+                        </div>
+                        <h3>Toyota Innova</h3>
+                        <span class="fleet-slide-tag">MUV · 7 Seater</span>
+                    </div>
+                    <div class="fleet-slide">
+                        <div class="fleet-slide-img">
+                            <img src="cars/ertiga.webp" alt="Maruti Ertiga">
+                        </div>
+                        <h3>Maruti Ertiga</h3>
+                        <span class="fleet-slide-tag">MUV · 7 Seater</span>
                     </div>
                 </div>
             </div>
