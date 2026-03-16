@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80">
+  <!-- Wipro sunflower/rainbow arc -->
+  <path d="M88,18 Q120,4 152,18" stroke="#E4002B" stroke-width="3" fill="none"/>
+  <path d="M92,12 Q120,0 148,12" stroke="#F7941D" stroke-width="2.5" fill="none"/>
+  <path d="M96,7 Q120,-3 144,7" stroke="#00A551" stroke-width="2" fill="none"/>
+  <!-- Wipro dot -->
+  <circle cx="120" cy="22" r="3" fill="#E4002B"/>
+  <text x="120" y="52" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="38" font-weight="700" fill="#431D7D" text-anchor="middle" letter-spacing="3">wipro</text>
+  <text x="120" y="68" font-family="Arial, sans-serif" font-size="9" font-weight="500" fill="#7B6BA5" text-anchor="middle" letter-spacing="2">SPIRIT OF BEING</text>
+</svg>

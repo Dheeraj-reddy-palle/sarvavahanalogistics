@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:site-bjju02zkp.godaddysites.com)",
+      "Bash(python3 -m http.server 8080)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(pip3 install:*)",
+      "Bash(python3 -c \":*)",
+      "WebSearch",
+      "Bash(curl -sL -o indigo.png \"https://logo.clearbit.com/goindigo.in\")",
+      "Bash(curl -sL -o genpact.png \"https://logo.clearbit.com/genpact.com\")",
+      "Bash(curl -sL -o tcs.png \"https://logo.clearbit.com/tcs.com\")",
+      "Bash(curl -sL -o wipro.png \"https://logo.clearbit.com/wipro.com\")",
+      "Bash(curl -sL -o pg.png \"https://logo.clearbit.com/pg.com\")",
+      "Bash(curl -sL -o google.png \"https://logo.clearbit.com/google.com\")",
+      "Bash(curl -sL -o microsoft.png \"https://logo.clearbit.com/microsoft.com\")",
+      "Bash(curl -sL -o indigo.png \"https://www.google.com/s2/favicons?domain=goindigo.in&sz=128\")",
+      "Bash(curl -sL -o genpact.png \"https://www.google.com/s2/favicons?domain=genpact.com&sz=128\")",
+      "Bash(curl -sL -o tcs.png \"https://www.google.com/s2/favicons?domain=tcs.com&sz=128\")",
+      "Bash(curl -sL -o wipro.png \"https://www.google.com/s2/favicons?domain=wipro.com&sz=128\")",
+      "Bash(curl -sL -o pg.png \"https://www.google.com/s2/favicons?domain=pg.com&sz=128\")",
+      "Bash(curl -sL -o google.png \"https://www.google.com/s2/favicons?domain=google.com&sz=128\")",
+      "Bash(curl -sL -o microsoft.png \"https://www.google.com/s2/favicons?domain=microsoft.com&sz=128\")",
+      "Bash(mkdir -p fleet)",
+      "Bash(curl -sL -o fleet/sedan.jpg \"https://cdn.pixabay.com/photo/2019/07/07/14/03/fiat-4322521_640.jpg\")",
+      "Bash(curl -sL -o fleet/premium.jpg \"https://cdn.pixabay.com/photo/2016/11/22/23/44/porsche-1851246_640.jpg\")",
+      "Bash(curl -sL -o fleet/suv.jpg \"https://cdn.pixabay.com/photo/2016/12/03/18/57/car-1880381_640.jpg\")",
+      "Bash(curl -sL -o sedan.jpg \"https://cdn.pixabay.com/photo/2021/01/15/16/49/toyota-5919831_640.jpg\")",
+      "Bash(curl -sL -o premium.jpg \"https://cdn.pixabay.com/photo/2020/09/06/07/37/car-5548242_640.jpg\")",
+      "Bash(curl -sL -o suv.jpg \"https://cdn.pixabay.com/photo/2020/01/10/11/44/suv-4754822_640.jpg\")",
+      "Bash(npm list:*)",
+      "Bash(npm install:*)",
+      "Bash(npx netlify-cli:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}

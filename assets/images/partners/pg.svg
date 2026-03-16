@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80">
+  <!-- P&G circle logo -->
+  <circle cx="120" cy="40" r="34" fill="none" stroke="#003DA5" stroke-width="3"/>
+  <text x="120" y="50" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="700" fill="#003DA5" text-anchor="middle" letter-spacing="1">P&amp;G</text>
+  <!-- Stars -->
+  <circle cx="96" cy="18" r="2" fill="#003DA5"/>
+  <circle cx="108" cy="12" r="2" fill="#003DA5"/>
+  <circle cx="120" cy="10" r="2" fill="#003DA5"/>
+  <circle cx="132" cy="12" r="2" fill="#003DA5"/>
+  <circle cx="144" cy="18" r="2" fill="#003DA5"/>
+</svg>

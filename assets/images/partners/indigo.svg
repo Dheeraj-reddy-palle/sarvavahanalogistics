@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80">
+  <defs>
+    <linearGradient id="indigoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#003DA5"/>
+      <stop offset="100%" style="stop-color:#0056D6"/>
+    </linearGradient>
+  </defs>
+  <text x="120" y="52" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="44" font-weight="900" fill="url(#indigoGrad)" text-anchor="middle" letter-spacing="1">IndiGo</text>
+  <text x="120" y="70" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#5B9BD5" text-anchor="middle" letter-spacing="4">6E AIRLINES</text>
+</svg>

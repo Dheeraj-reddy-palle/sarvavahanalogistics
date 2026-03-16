@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80">
+  <!-- TATA logo -->
+  <text x="120" y="38" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="6">TATA</text>
+  <!-- Arch over TATA -->
+  <path d="M70,12 Q120,0 170,12" stroke="#2E67B2" stroke-width="3" fill="none"/>
+  <text x="120" y="58" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#6B9FD4" text-anchor="middle" letter-spacing="3">CONSULTANCY</text>
+  <text x="120" y="72" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#6B9FD4" text-anchor="middle" letter-spacing="3">SERVICES</text>
+</svg>
