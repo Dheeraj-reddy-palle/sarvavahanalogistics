@@ -201,3 +201,93 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// ===== FLEET CAROUSEL TOUCH/DRAG SCROLL =====
+(function () {
+    const carousel = document.querySelector('.fleet-carousel');
+    const track = document.querySelector('.fleet-track');
+    if (!carousel || !track) return;
+
+    let isDragging = false;
+    let startX = 0;
+    let scrollOffset = 0;
+    let animationPaused = false;
+
+    function getCurrentTranslateX() {
+        const style = window.getComputedStyle(track);
+        const matrix = new DOMMatrix(style.transform);
+        return matrix.m41;
+    }
+
+    function pauseAnimation() {
+        if (!animationPaused) {
+            scrollOffset = getCurrentTranslateX();
+            track.style.animation = 'none';
+            track.style.transform = `translateX(${scrollOffset}px)`;
+            animationPaused = true;
+        }
+    }
+
+    function resumeAnimation() {
+        const totalWidth = track.scrollWidth / 2;
+        // Normalize scrollOffset to stay within bounds
+        let normalizedOffset = scrollOffset % totalWidth;
+        if (normalizedOffset > 0) normalizedOffset -= totalWidth;
+
+        // Calculate the percentage progressed
+        const progress = Math.abs(normalizedOffset) / totalWidth;
+
+        track.style.transform = '';
+        track.style.animation = 'none';
+        // Force reflow
+        void track.offsetWidth;
+        track.style.animation = `fleetScroll 35s linear infinite`;
+        track.style.animationDelay = `-${progress * 35}s`;
+        animationPaused = false;
+    }
+
+    // Touch events (mobile finger scroll)
+    carousel.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        startX = e.touches[0].clientX;
+        pauseAnimation();
+    }, { passive: true });
+
+    carousel.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const currentX = e.touches[0].clientX;
+        const diff = currentX - startX;
+        startX = currentX;
+        scrollOffset += diff;
+        track.style.transform = `translateX(${scrollOffset}px)`;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', () => {
+        isDragging = false;
+        resumeAnimation();
+    });
+
+    // Mouse events (desktop drag)
+    carousel.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        pauseAnimation();
+        carousel.style.cursor = 'grabbing';
+        e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const diff = e.clientX - startX;
+        startX = e.clientX;
+        scrollOffset += diff;
+        track.style.transform = `translateX(${scrollOffset}px)`;
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        carousel.style.cursor = 'grab';
+        resumeAnimation();
+    });
+})();

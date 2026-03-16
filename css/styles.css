@@ -623,11 +623,19 @@ h3, h4 {
 
 .ticker-logo {
     flex-shrink: 0;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ticker-logo img {
-    height: 36px;
+    max-width: 100%;
+    max-height: 100%;
     width: auto;
+    height: auto;
+    object-fit: contain;
     opacity: 0.6;
     filter: brightness(0) invert(1);
     transition: var(--transition);
@@ -942,6 +950,8 @@ h3, h4 {
     padding: 20px 0;
     mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
 }
 
 .fleet-track {
@@ -1096,7 +1106,7 @@ h3, h4 {
     background: var(--dark-3);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: var(--radius-lg);
-    padding: 30px 20px;
+    padding: 30px 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1104,6 +1114,8 @@ h3, h4 {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     width: calc(25% - 18px);
     min-width: 0;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .partner-card:hover {
@@ -1112,11 +1124,21 @@ h3, h4 {
     border-color: rgba(201, 152, 46, 0.15);
 }
 
+.partner-logo-wrap {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
 .partner-card img,
 .partner-card .partner-logo-img {
-    height: 50px;
+    max-width: 100%;
+    max-height: 100%;
     width: auto;
-    max-width: 160px;
+    height: auto;
     object-fit: contain;
     filter: brightness(0) invert(1);
     opacity: 0.7;
@@ -1129,9 +1151,13 @@ h3, h4 {
 }
 
 .partner-card span {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--gray-400);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 /* ===== CTA SECTION ===== */
@@ -1556,7 +1582,7 @@ h3, h4 {
     }
 
     .partner-card {
-        width: calc(33.333% - 16px);
+        width: calc(33.333% - 18px);
     }
 
     .footer-grid {
@@ -1618,6 +1644,15 @@ h3, h4 {
 
     .partner-card {
         width: calc(50% - 12px);
+        padding: 24px 12px;
+    }
+
+    .partner-card span {
+        font-size: 11px;
+    }
+
+    .partners-grid {
+        gap: 12px;
     }
 
     .contact-grid {
