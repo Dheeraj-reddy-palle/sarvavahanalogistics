@@ -152,6 +152,38 @@ setupReveal();
 
 // ===== CONTACT FORM =====
 const contactForm = document.getElementById('contactForm');
+const successPopup = document.getElementById('successPopup');
+const popupRefId = document.getElementById('popupRefId');
+const popupClose = document.getElementById('popupClose');
+
+function generateRefId() {
+    const now = new Date();
+    const yy = String(now.getFullYear()).slice(2);
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    const rand = String(Math.floor(1000 + Math.random() * 9000));
+    return `SV-${yy}${mm}${dd}-${rand}`;
+}
+
+function showSuccessPopup(refId) {
+    popupRefId.textContent = refId;
+    successPopup.classList.add('active');
+}
+
+function closePopup() {
+    successPopup.classList.remove('active');
+}
+
+if (popupClose) {
+    popupClose.addEventListener('click', closePopup);
+}
+
+if (successPopup) {
+    successPopup.addEventListener('click', (e) => {
+        if (e.target === successPopup) closePopup();
+    });
+}
+
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -168,15 +200,17 @@ if (contactForm) {
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         btn.disabled = true;
 
+        const refId = generateRefId();
+
         // Send email in background via FormSubmit.co
         const formData = new FormData();
         formData.append('name', name);
         formData.append('phone', phone);
         formData.append('email', email);
-        formData.append('company', company || 'N/A');
-        formData.append('service', service || 'N/A');
-        formData.append('message', message || 'N/A');
-        formData.append('_subject', `New Booking Request from ${name}`);
+        formData.append('company', company);
+        formData.append('service', service);
+        formData.append('message', message);
+        formData.append('_subject', `[${refId}] New Booking Request from ${name}`);
         formData.append('_captcha', 'false');
         formData.append('_template', 'table');
 
@@ -186,52 +220,16 @@ if (contactForm) {
         })
         .then(response => response.json())
         .then(data => {
-            btn.innerHTML = '<i class="fas fa-check"></i> Request Sent!';
-            btn.style.background = '#10B981';
-            btn.style.borderColor = '#10B981';
-
-            // Also send via WhatsApp as backup
-            let waMessage = `Hello Sarvavahana Logistics!%0A%0A`;
-            waMessage += `*New Booking Request*%0A`;
-            waMessage += `Name: ${name}%0A`;
-            waMessage += `Phone: ${phone}%0A`;
-            waMessage += `Email: ${email}%0A`;
-            if (company) waMessage += `Company: ${company}%0A`;
-            if (service) waMessage += `Service: ${service}%0A`;
-            if (message) waMessage += `Requirements: ${message}%0A`;
-            window.open(`https://wa.me/919640011158?text=${waMessage}`, '_blank');
-
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.background = '';
-                btn.style.borderColor = '';
-                btn.disabled = false;
-                contactForm.reset();
-            }, 3000);
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            contactForm.reset();
+            showSuccessPopup(refId);
         })
         .catch(error => {
-            // If email fails, still send via WhatsApp
-            let waMessage = `Hello Sarvavahana Logistics!%0A%0A`;
-            waMessage += `*New Booking Request*%0A`;
-            waMessage += `Name: ${name}%0A`;
-            waMessage += `Phone: ${phone}%0A`;
-            waMessage += `Email: ${email}%0A`;
-            if (company) waMessage += `Company: ${company}%0A`;
-            if (service) waMessage += `Service: ${service}%0A`;
-            if (message) waMessage += `Requirements: ${message}%0A`;
-            window.open(`https://wa.me/919640011158?text=${waMessage}`, '_blank');
-
-            btn.innerHTML = '<i class="fas fa-check"></i> Redirecting to WhatsApp...';
-            btn.style.background = '#10B981';
-            btn.style.borderColor = '#10B981';
-
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.background = '';
-                btn.style.borderColor = '';
-                btn.disabled = false;
-                contactForm.reset();
-            }, 3000);
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            contactForm.reset();
+            showSuccessPopup(refId);
         });
     });
 }
