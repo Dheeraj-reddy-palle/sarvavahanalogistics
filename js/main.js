@@ -163,28 +163,76 @@ if (contactForm) {
         const service = document.getElementById('service').value;
         const message = document.getElementById('message').value;
 
-        // Build WhatsApp message
-        let waMessage = `Hello Sarvavahana Logistics!%0A%0A`;
-        waMessage += `*New Booking Request*%0A`;
-        waMessage += `Name: ${name}%0A`;
-        waMessage += `Phone: ${phone}%0A`;
-        waMessage += `Email: ${email}%0A`;
-        if (company) waMessage += `Company: ${company}%0A`;
-        if (service) waMessage += `Service: ${service}%0A`;
-        if (message) waMessage += `Requirements: ${message}%0A`;
-
-        window.open(`https://wa.me/919640011158?text=${waMessage}`, '_blank');
-
         const btn = contactForm.querySelector('button[type="submit"]');
         const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-check"></i> Redirecting to WhatsApp...';
-        btn.style.background = '#00D68F';
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        btn.disabled = true;
 
-        setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.style.background = '';
-            contactForm.reset();
-        }, 3000);
+        // Send email in background via FormSubmit.co
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('phone', phone);
+        formData.append('email', email);
+        formData.append('company', company || 'N/A');
+        formData.append('service', service || 'N/A');
+        formData.append('message', message || 'N/A');
+        formData.append('_subject', `New Booking Request from ${name}`);
+        formData.append('_captcha', 'false');
+        formData.append('_template', 'table');
+
+        fetch('https://formsubmit.co/ajax/info@sarvavahanalogistics.com', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            btn.innerHTML = '<i class="fas fa-check"></i> Request Sent!';
+            btn.style.background = '#10B981';
+            btn.style.borderColor = '#10B981';
+
+            // Also send via WhatsApp as backup
+            let waMessage = `Hello Sarvavahana Logistics!%0A%0A`;
+            waMessage += `*New Booking Request*%0A`;
+            waMessage += `Name: ${name}%0A`;
+            waMessage += `Phone: ${phone}%0A`;
+            waMessage += `Email: ${email}%0A`;
+            if (company) waMessage += `Company: ${company}%0A`;
+            if (service) waMessage += `Service: ${service}%0A`;
+            if (message) waMessage += `Requirements: ${message}%0A`;
+            window.open(`https://wa.me/919640011158?text=${waMessage}`, '_blank');
+
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+                btn.style.borderColor = '';
+                btn.disabled = false;
+                contactForm.reset();
+            }, 3000);
+        })
+        .catch(error => {
+            // If email fails, still send via WhatsApp
+            let waMessage = `Hello Sarvavahana Logistics!%0A%0A`;
+            waMessage += `*New Booking Request*%0A`;
+            waMessage += `Name: ${name}%0A`;
+            waMessage += `Phone: ${phone}%0A`;
+            waMessage += `Email: ${email}%0A`;
+            if (company) waMessage += `Company: ${company}%0A`;
+            if (service) waMessage += `Service: ${service}%0A`;
+            if (message) waMessage += `Requirements: ${message}%0A`;
+            window.open(`https://wa.me/919640011158?text=${waMessage}`, '_blank');
+
+            btn.innerHTML = '<i class="fas fa-check"></i> Redirecting to WhatsApp...';
+            btn.style.background = '#10B981';
+            btn.style.borderColor = '#10B981';
+
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+                btn.style.borderColor = '';
+                btn.disabled = false;
+                contactForm.reset();
+            }, 3000);
+        });
     });
 }
 
