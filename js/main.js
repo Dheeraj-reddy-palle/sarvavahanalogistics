@@ -6,6 +6,10 @@ window.addEventListener('load', () => {
             preloader.classList.add('hidden');
         }, 1800);
     }
+
+    // Auto-update copyright year
+    const yearEl = document.getElementById('copyrightYear');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
 
 // ===== NAVBAR SCROLL =====
